@@ -1,4 +1,4 @@
-package com.snovelli.seo.ktt;
+package com.snovelli.seo.ktt.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
