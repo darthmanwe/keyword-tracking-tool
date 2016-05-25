@@ -7,4 +7,5 @@
 .idea/**
 *.iml
 
+/src/main/resources/auth.json
 target/
