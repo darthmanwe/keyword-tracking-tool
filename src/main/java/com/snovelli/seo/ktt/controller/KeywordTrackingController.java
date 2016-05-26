@@ -25,7 +25,7 @@ public class KeywordTrackingController {
     @RequestMapping("/keyword-position")
     public SearchAnalyticsQueryResponse getKeywordPosition(@RequestParam String query) throws IOException {
         return searchAnalyticsClient.performRequest(
-                Period.between(LocalDate.of(2016, 4, 1), LocalDate.of(2016, 5, 1)),
+                LocalDate.of(2016, 4, 1), LocalDate.of(2016, 5, 1),
                 query,
                 Locale.ITALY,
                 DeviceType.DESKTOP);
