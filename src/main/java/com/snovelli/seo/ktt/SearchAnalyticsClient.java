@@ -5,25 +5,26 @@ import com.google.api.services.webmasters.model.ApiDimensionFilter;
 import com.google.api.services.webmasters.model.ApiDimensionFilterGroup;
 import com.google.api.services.webmasters.model.SearchAnalyticsQueryRequest;
 import com.google.api.services.webmasters.model.SearchAnalyticsQueryResponse;
+
 import com.snovelli.seo.ktt.model.DeviceType;
 
 import java.io.IOException;
-import java.time.Period;
+import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 
+import static java.time.format.DateTimeFormatter.ISO_LOCAL_DATE;
+
 /**
  * Created by Salvatore on 25/05/2016.
  */
 
+
 public class SearchAnalyticsClient {
 
-
     private final String websiteURL;
-
-
     private final Webmasters apiClient;
 
 
@@ -34,7 +35,8 @@ public class SearchAnalyticsClient {
 
 
     public SearchAnalyticsQueryResponse performRequest(
-            Period period,
+            LocalDate start,
+            LocalDate end,
             String query,
             Locale locale,
             DeviceType deviceType) throws IOException {
@@ -43,25 +45,20 @@ public class SearchAnalyticsClient {
 
 
         queryRequest
-                .setStartDate("2016-04-01")
-                .setEndDate("2016-05-01")
+                .setStartDate(start.format(ISO_LOCAL_DATE))
+                .setEndDate(end.format(ISO_LOCAL_DATE))
                 .setDimensionFilterGroups(buildFilterGroups(query, locale, deviceType))
                 .setDimensions(Arrays.asList("date", "page", "country", "device"))
-        //.setRowLimit(100)
-        ;
+                .setRowLimit(10);
 
 
         Webmasters.Searchanalytics searchAnalytics = apiClient.searchanalytics();
 
 
         Webmasters.Searchanalytics.Query saQuery = searchAnalytics.query(websiteURL, queryRequest);
-        SearchAnalyticsQueryResponse response = saQuery.execute();
 
 
-        System.out.println("Found " + response.getRows().size() + " rows");
-        System.out.println(response.toPrettyString());
-
-        return response;
+        return saQuery.execute();
 
     }
 
