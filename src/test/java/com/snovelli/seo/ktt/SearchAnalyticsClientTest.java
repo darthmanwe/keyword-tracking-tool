@@ -30,9 +30,6 @@ import static org.mockito.Matchers.matches;
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.verify;
 
-/**
- * Created by Salvatore on 25/05/2016.
- */
 
 @RunWith(MockitoJUnitRunner.class)
 public class SearchAnalyticsClientTest {
