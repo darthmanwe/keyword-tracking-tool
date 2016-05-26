@@ -9,7 +9,7 @@ import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 import javax.sql.DataSource;
 
 @Profile(Constants.SPRING_PROFILE_DEVELOPMENT)
-public class DefaultDatabaseConfiguration {
+public class H2DatabaseConfiguration {
 
     @Bean
     public DataSource dataSource() {
