@@ -17,11 +17,6 @@ import java.util.Locale;
 
 import static java.time.format.DateTimeFormatter.ISO_LOCAL_DATE;
 
-/**
- * Created by Salvatore on 25/05/2016.
- */
-
-
 public class SearchAnalyticsClient {
 
     private final String websiteURL;
