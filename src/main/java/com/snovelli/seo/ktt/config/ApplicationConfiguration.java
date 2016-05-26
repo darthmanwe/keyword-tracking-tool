@@ -19,7 +19,7 @@ public class ApplicationConfiguration {
 
     private static String OAUTH_SCOPE = "https://www.googleapis.com/auth/webmasters.readonly";
 
-    @Value("${website.url:}")
+    @Value("${website.url}")
     String websiteURL;
     @Bean
     public GoogleCredential googleCredential() throws IOException {
