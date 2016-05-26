@@ -48,8 +48,7 @@ public class SearchAnalyticsClient {
                 .setStartDate(start.format(ISO_LOCAL_DATE))
                 .setEndDate(end.format(ISO_LOCAL_DATE))
                 .setDimensionFilterGroups(buildFilterGroups(query, locale, deviceType))
-                .setDimensions(Arrays.asList("date", "page", "country", "device"))
-                .setRowLimit(10);
+                .setDimensions(Arrays.asList("date", "page", "country", "device"));
 
 
         Webmasters.Searchanalytics searchAnalytics = apiClient.searchanalytics();

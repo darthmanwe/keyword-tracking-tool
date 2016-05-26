@@ -22,8 +22,10 @@ import java.util.Locale;
 import static java.time.format.DateTimeFormatter.ISO_LOCAL_DATE;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Matchers.any;
+import static org.mockito.Matchers.anyString;
 import static org.mockito.Matchers.anyString;
 import static org.mockito.Matchers.matches;
 import static org.mockito.Mockito.doReturn;
@@ -78,6 +80,7 @@ public class SearchAnalyticsClientTest {
 
         assertThat(queryRequest.getStartDate(), is(START_DATE.format(ISO_LOCAL_DATE)));
         assertThat(queryRequest.getEndDate(), is(END_DATE.format(ISO_LOCAL_DATE)));
+        assertThat(queryRequest.getRowLimit(), is(nullValue()));
 
         List<ApiDimensionFilterGroup> filterGroups = queryRequest.getDimensionFilterGroups();
         assertThat(filterGroups.size(), is(1));
