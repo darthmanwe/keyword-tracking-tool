@@ -74,7 +74,6 @@ public class SearchAnalyticsClientTest {
         ArgumentCaptor<SearchAnalyticsQueryRequest> argumentCaptor = ArgumentCaptor.forClass(SearchAnalyticsQueryRequest.class);
         verify(searchAnalytics).query(matches(WEBSITE_URL), argumentCaptor.capture());
 
-
         SearchAnalyticsQueryRequest queryRequest = argumentCaptor.getValue();
 
         assertThat(queryRequest.getStartDate(), is(START_DATE.format(ISO_LOCAL_DATE)));
