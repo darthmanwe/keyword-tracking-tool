@@ -1,4 +1,4 @@
-package com.snovelli.seo.ktt.model;
+package com.snovelli.seo.ktt.domain;
 
 import com.snovelli.seo.Application;
 import com.snovelli.seo.ktt.repository.KeywordPositionRepository;

@@ -1,4 +1,4 @@
-package com.snovelli.seo.ktt.model;
+package com.snovelli.seo.ktt.domain;
 
 public enum DeviceType {
     DESKTOP("DESKTOP"), MOBILE("MOBILE");

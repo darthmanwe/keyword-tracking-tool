@@ -2,7 +2,7 @@ package com.snovelli.seo.ktt.controller;
 
 import com.google.api.services.webmasters.model.SearchAnalyticsQueryResponse;
 import com.snovelli.seo.ktt.SearchAnalyticsClient;
-import com.snovelli.seo.ktt.model.DeviceType;
+import com.snovelli.seo.ktt.domain.DeviceType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
 import java.time.LocalDate;
-import java.time.Period;
 import java.util.Locale;
 
 /**

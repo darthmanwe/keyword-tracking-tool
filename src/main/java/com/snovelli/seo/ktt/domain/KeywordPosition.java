@@ -1,4 +1,4 @@
-package com.snovelli.seo.ktt.model;
+package com.snovelli.seo.ktt.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

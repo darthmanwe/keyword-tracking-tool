@@ -6,7 +6,7 @@ import com.google.api.services.webmasters.model.ApiDimensionFilterGroup;
 import com.google.api.services.webmasters.model.SearchAnalyticsQueryRequest;
 import com.google.api.services.webmasters.model.SearchAnalyticsQueryResponse;
 
-import com.snovelli.seo.ktt.model.DeviceType;
+import com.snovelli.seo.ktt.domain.DeviceType;
 
 import java.io.IOException;
 import java.time.LocalDate;

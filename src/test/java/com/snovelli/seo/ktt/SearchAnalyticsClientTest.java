@@ -5,7 +5,7 @@ import com.google.api.services.webmasters.model.ApiDimensionFilter;
 import com.google.api.services.webmasters.model.ApiDimensionFilterGroup;
 import com.google.api.services.webmasters.model.SearchAnalyticsQueryRequest;
 
-import com.snovelli.seo.ktt.model.DeviceType;
+import com.snovelli.seo.ktt.domain.DeviceType;
 
 import org.junit.Before;
 import org.junit.Test;
