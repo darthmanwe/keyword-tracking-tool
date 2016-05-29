@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/salvatorenovelli/keyword-tracking-tool.svg?branch=master)](https://travis-ci.org/salvatorenovelli/keyword-tracking-tool)
 # Keyword Tracking Tool
 This tool make use of the [Search Console API](https://developers.google.com/webmaster-tools/) to retrieve position index for kewyword.
 
