@@ -53,7 +53,7 @@ public class SearchAnalyticsClientTest {
     public void init() throws IOException {
         doReturn(searchAnalytics).when(apiClient).searchanalytics();
         doReturn(query).when(searchAnalytics).query(anyString(), any(SearchAnalyticsQueryRequest.class));
-        sut = new KeywordTrackingService(WEBSITE_URL, apiClient);
+        sut = new GoogleKeywordTrackingService(WEBSITE_URL, apiClient);
     }
 
 
