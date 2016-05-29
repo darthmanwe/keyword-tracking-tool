@@ -5,7 +5,7 @@ import com.google.api.client.http.javanet.NetHttpTransport;
 import com.google.api.client.json.jackson2.JacksonFactory;
 import com.google.api.services.webmasters.Webmasters;
 
-import com.snovelli.seo.ktt.SearchAnalyticsClient;
+import com.snovelli.seo.ktt.service.KeywordTrackingService;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -38,8 +38,8 @@ public class ApplicationConfiguration {
 
 
     @Bean
-    public SearchAnalyticsClient getSearchAnalyticsClient(Webmasters apiClient) {
-        return new SearchAnalyticsClient(websiteURL, apiClient);
+    public KeywordTrackingService getSearchAnalyticsClient(Webmasters apiClient) {
+        return new KeywordTrackingService(websiteURL, apiClient);
     }
 }
 

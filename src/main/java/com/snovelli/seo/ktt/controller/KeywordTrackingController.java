@@ -1,7 +1,7 @@
 package com.snovelli.seo.ktt.controller;
 
 import com.google.api.services.webmasters.model.SearchAnalyticsQueryResponse;
-import com.snovelli.seo.ktt.SearchAnalyticsClient;
+import com.snovelli.seo.ktt.service.KeywordTrackingService;
 import com.snovelli.seo.ktt.domain.DeviceType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,7 +19,7 @@ import java.util.Locale;
 public class KeywordTrackingController {
 
     @Autowired
-    SearchAnalyticsClient searchAnalyticsClient;
+    KeywordTrackingService searchAnalyticsClient;
 
     @RequestMapping("/keyword-position")
     public SearchAnalyticsQueryResponse getKeywordPosition(@RequestParam String query) throws IOException {

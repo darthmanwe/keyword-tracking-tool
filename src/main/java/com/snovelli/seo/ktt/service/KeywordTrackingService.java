@@ -1,11 +1,10 @@
-package com.snovelli.seo.ktt;
+package com.snovelli.seo.ktt.service;
 
 import com.google.api.services.webmasters.Webmasters;
 import com.google.api.services.webmasters.model.ApiDimensionFilter;
 import com.google.api.services.webmasters.model.ApiDimensionFilterGroup;
 import com.google.api.services.webmasters.model.SearchAnalyticsQueryRequest;
 import com.google.api.services.webmasters.model.SearchAnalyticsQueryResponse;
-
 import com.snovelli.seo.ktt.domain.DeviceType;
 
 import java.io.IOException;
@@ -17,13 +16,14 @@ import java.util.Locale;
 
 import static java.time.format.DateTimeFormatter.ISO_LOCAL_DATE;
 
-public class SearchAnalyticsClient {
+
+public class KeywordTrackingService {
 
     private final String websiteURL;
     private final Webmasters apiClient;
 
 
-    public SearchAnalyticsClient(String websiteURL, Webmasters apiClient) {
+    public KeywordTrackingService(String websiteURL, Webmasters apiClient) {
         this.websiteURL = websiteURL;
         this.apiClient = apiClient;
     }

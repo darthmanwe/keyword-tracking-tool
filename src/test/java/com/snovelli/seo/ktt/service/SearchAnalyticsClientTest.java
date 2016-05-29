@@ -1,12 +1,10 @@
-package com.snovelli.seo.ktt;
+package com.snovelli.seo.ktt.service;
 
 import com.google.api.services.webmasters.Webmasters;
 import com.google.api.services.webmasters.model.ApiDimensionFilter;
 import com.google.api.services.webmasters.model.ApiDimensionFilterGroup;
 import com.google.api.services.webmasters.model.SearchAnalyticsQueryRequest;
-
 import com.snovelli.seo.ktt.domain.DeviceType;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -20,13 +18,10 @@ import java.util.List;
 import java.util.Locale;
 
 import static java.time.format.DateTimeFormatter.ISO_LOCAL_DATE;
-import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.nullValue;
+import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Matchers.any;
-import static org.mockito.Matchers.anyString;
-import static org.mockito.Matchers.matches;
+import static org.mockito.Matchers.*;
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.verify;
 
@@ -52,13 +47,13 @@ public class SearchAnalyticsClientTest {
     Webmasters.Searchanalytics.Query query;
 
 
-    SearchAnalyticsClient sut;
+    KeywordTrackingService sut;
 
     @Before
     public void init() throws IOException {
         doReturn(searchAnalytics).when(apiClient).searchanalytics();
         doReturn(query).when(searchAnalytics).query(anyString(), any(SearchAnalyticsQueryRequest.class));
-        sut = new SearchAnalyticsClient(WEBSITE_URL, apiClient);
+        sut = new KeywordTrackingService(WEBSITE_URL, apiClient);
     }
 
 
