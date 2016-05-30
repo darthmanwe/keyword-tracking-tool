@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.util.Collections;
 
 @Configuration
-public class HerokuApplicationConfiguration {
+public class ApplicationConfiguration {
 
     private static String OAUTH_SCOPE = "https://www.googleapis.com/auth/webmasters.readonly";
 
@@ -24,7 +24,7 @@ public class HerokuApplicationConfiguration {
     String websiteURL;
 
     @Bean
-    @Profile(Constants.SPRING_PROFILE_HEROKU)
+    @Profile("!" + Constants.SPRING_PROFILE_UNIT_TESTING)
     public GoogleCredential googleCredential() throws IOException {
         return GoogleCredential.fromStream(ClassLoader.getSystemResourceAsStream("auth.json"))
                 .createScoped(Collections.singleton(OAUTH_SCOPE));
@@ -32,7 +32,7 @@ public class HerokuApplicationConfiguration {
 
 
     @Bean
-    @Profile(Constants.SPRING_PROFILE_HEROKU)
+    @Profile("!" + Constants.SPRING_PROFILE_UNIT_TESTING)
     public Webmasters getWebmasters(GoogleCredential credential) {
         // Create a new authorized API client
         return new Webmasters.Builder(new NetHttpTransport(), new JacksonFactory(), credential)
@@ -42,14 +42,14 @@ public class HerokuApplicationConfiguration {
 
 
     @Bean
-    @Profile(Constants.SPRING_PROFILE_HEROKU)
+    @Profile("!" + Constants.SPRING_PROFILE_UNIT_TESTING)
     public KeywordTrackingService getGoogleKeywordTrackingService(Webmasters apiClient) {
         return new GoogleKeywordTrackingService(websiteURL, apiClient);
     }
 
 
     @Bean
-    @Profile({Constants.SPRING_PROFILE_UNIT_TESTING, Constants.SPRING_PROFILE_DEVELOPMENT})
+    @Profile(Constants.SPRING_PROFILE_UNIT_TESTING)
     public KeywordTrackingService getDummyKeywordTrackingService() {
         return new DummyKeywordTrackingService();
     }
