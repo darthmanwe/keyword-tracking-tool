@@ -4,6 +4,7 @@ import com.google.api.services.webmasters.Webmasters;
 import com.google.api.services.webmasters.model.ApiDimensionFilter;
 import com.google.api.services.webmasters.model.ApiDimensionFilterGroup;
 import com.google.api.services.webmasters.model.SearchAnalyticsQueryRequest;
+import com.google.api.services.webmasters.model.SearchAnalyticsQueryResponse;
 import com.snovelli.seo.ktt.domain.DeviceType;
 import org.junit.Before;
 import org.junit.Test;
@@ -30,11 +31,11 @@ import static org.mockito.Mockito.verify;
 public class SearchAnalyticsClientTest {
 
 
-    public static final String WEBSITE_URL = "http://www.example.com";
-    public static final LocalDate START_DATE = LocalDate.of(2016, 4, 1);
-    public static final LocalDate END_DATE = LocalDate.of(2016, 5, 1);
-    public static final String TEST_QUERY = "test query";
-    public static final Locale BEST_LOCALE = Locale.ITALY;
+    private static final String WEBSITE_URL = "http://www.example.com";
+    private static final LocalDate START_DATE = LocalDate.of(2016, 4, 1);
+    private static final LocalDate END_DATE = LocalDate.of(2016, 5, 1);
+    private static final String TEST_QUERY = "test query";
+    private static final Locale BEST_LOCALE = Locale.ITALY;
 
 
     @Mock
@@ -47,12 +48,16 @@ public class SearchAnalyticsClientTest {
     Webmasters.Searchanalytics.Query query;
 
 
+    SearchAnalyticsQueryResponse emptyQueryResponse = new SearchAnalyticsQueryResponse();
+
+
     KeywordTrackingService sut;
 
     @Before
     public void init() throws IOException {
         doReturn(searchAnalytics).when(apiClient).searchanalytics();
         doReturn(query).when(searchAnalytics).query(anyString(), any(SearchAnalyticsQueryRequest.class));
+        doReturn(emptyQueryResponse).when(query).execute();
         sut = new GoogleKeywordTrackingService(WEBSITE_URL, apiClient);
     }
 

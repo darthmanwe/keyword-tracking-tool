@@ -1,20 +1,24 @@
 package com.snovelli.seo.ktt.domain;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
+@Data @NoArgsConstructor
 public class KeywordPosition {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    private long clicks;
+    private double clicks;
     private double ctr;
-    private long impressions;
+    private double impressions;
     private double position;
 
     private String date;
@@ -23,7 +27,14 @@ public class KeywordPosition {
     private String device;
 
 
-    public long getId() {
-        return id;
+    public KeywordPosition(double clicks, double ctr, double impressions, double position, String date, String url, String country, String device) {
+        this.clicks = clicks;
+        this.ctr = ctr;
+        this.impressions = impressions;
+        this.position = position;
+        this.date = date;
+        this.url = url;
+        this.country = country;
+        this.device = device;
     }
 }
