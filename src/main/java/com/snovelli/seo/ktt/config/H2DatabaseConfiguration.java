@@ -1,6 +1,9 @@
 package com.snovelli.seo.ktt.config;
 
+import org.h2.server.web.WebServlet;
+import org.springframework.boot.context.embedded.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabase;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
@@ -17,9 +20,7 @@ public class H2DatabaseConfiguration {
         // no need shutdown, EmbeddedDatabaseFactoryBean will take care of this
         EmbeddedDatabaseBuilder builder = new EmbeddedDatabaseBuilder();
         EmbeddedDatabase db = builder
-                .setType(EmbeddedDatabaseType.HSQL) //.H2 or .DERBY
-//                .addScript("db/sql/create-db.sql")
-//                .addScript("db/sql/insert-data.sql")
+                .setType(EmbeddedDatabaseType.HSQL)
                 .build();
         return db;
     }
